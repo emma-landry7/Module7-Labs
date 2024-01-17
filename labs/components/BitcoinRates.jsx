@@ -13,14 +13,16 @@ function BitcoinRates() {
         fetch(`https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=${currency}`)
             .then(response => response.json())
             .then(json => {
-                setCurrency(currency)
-                let curr = json.bitcoin.currency
-                console.log(price)
+                // setCurrency(currency)
+                let curr = Object.values(json.bitcoin)
+                console.log(currency, curr[0])
+                setPrice(curr[0])
             })
         return () => {
             ignore = true
+            console.log('Cleanup effect')
         }
-    }, [])
+    }, [currency])
 
     return (
         <div>
