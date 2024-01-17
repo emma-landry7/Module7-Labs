@@ -14,7 +14,7 @@ function BitcoinRates() {
             .then(response => response.json())
             .then(json => {
                 setCurrency(currency)
-                let curr = json.bitcoin
+                let curr = json.bitcoin.currency
                 console.log(price)
             })
         return () => {
