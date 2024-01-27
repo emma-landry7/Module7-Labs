@@ -11,12 +11,12 @@ function App() {
 
   return (
     <>
-      {/* <MoodProvider> */}
+      <MoodProvider>
         {/* <h1>Module 7 Labs</h1>
         <BitcoinRates /> */}
         {/* <Emoji /> */}
         <AppRoutes />
-      {/* </MoodProvider> */}
+      </MoodProvider>
     </>
   )
 }
