@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useData } from "../hooks/useData";
 import Emoji from "./Emoji";
+import NavBar from "./NavBar";
 
 const currencies = ['USD', 'AUD', 'NZD', 'GBP', 'EUR', 'SGD'];
 
@@ -35,7 +36,8 @@ function BitcoinRates() {
     return (
         <div>
             <div>
-                <h3>Bitcoin Exchange Rate</h3>
+                <h1>Bitcoin Exchange Rate</h1>
+                <NavBar />
                 <label>Choose currency:
                     <select value={currency} onChange={e => setCurrency(e.target.value)}>
                         {options}
