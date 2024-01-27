@@ -13,6 +13,7 @@ function Emoji() {
     console.log(mood)
     const handleMood = () => {
         if (mood === "😃") handleMoodChange("🙁")
+        else if (mood === "🙁") handleMoodChange("😂")
         else handleMoodChange("😃")
     }
 
@@ -25,7 +26,7 @@ function Emoji() {
                 {mood}
             </div>
             <div>
-                    <button onClick={() => handleMood()}>Change mood</button>
+                <button onClick={() => handleMood()}>Change mood</button>
             </div>
         </div>
     )
