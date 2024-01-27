@@ -10,25 +10,22 @@ function Emoji() {
     //     else setMood("😃")
     // }
 
-    const handleMood = (e) => {
-        e.preventDefault()
-        if (mood.emoji === "😃") handleMoodChange({emoji: "🙁"})
-        else handleMoodChange({emoji: "😃"})
+    console.log(mood)
+    const handleMood = () => {
+        if (mood === "😃") handleMoodChange("🙁")
+        else handleMoodChange("😃")
     }
 
     return (
         <div>
             <h2>Mood </h2>
             <div>
-                {/* {currentMood} */}
-                {/* <button onClick={handleSubmit}>Change mood</button> */}
-                {mood.emoji}
+                {/* {currentMood}
+                <button onClick={handleSubmit}>Change mood</button> */}
+                {mood}
             </div>
             <div>
-                <form onSubmit={handleMood}>
-                    <button onClick={() => handleMoodChange({})}>Change mood</button>
-                </form>
-                
+                    <button onClick={() => handleMood()}>Change mood</button>
             </div>
         </div>
     )

@@ -6,7 +6,15 @@ export function useData(url) {
     useEffect(() => {
         if(url) {
             let ignore = false;
-            fetch(url)
+            fetch(url 
+            //     {
+            //     method: "GET",
+            //     mode: 'no-cors',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     }
+            // }
+            )
                 .then(response => response.json())
                 .then(json => {
                     if(!ignore) {
