@@ -2,13 +2,16 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useData } from "../hooks/useData";
 import Emoji from "./Emoji";
-import NavBar from "./NavBar";
+import NewNavBar from "./NewNavBar";
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import { MenuItem } from "@mui/material";
 
 const currencies = ['USD', 'AUD', 'NZD', 'GBP', 'EUR', 'SGD'];
 
 function BitcoinRates() {
     const [currency, setCurrency] = useState(currencies[0]);
-    const options = currencies.map(curr => <option value={curr} key={curr}>{curr}</option>);
+    const options = currencies.map(curr => <MenuItem value={curr} key={curr}>{curr}</MenuItem>);
     // const [price, setPrice] = useState('')
     const data = useData(`https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=${currency}`)
 
@@ -37,12 +40,12 @@ function BitcoinRates() {
         <div>
             <div>
                 <h1>Bitcoin Exchange Rate</h1>
-                <NavBar />
-                <label>Choose currency:
-                    <select value={currency} onChange={e => setCurrency(e.target.value)}>
+                <NewNavBar />
+                <InputLabel>Choose currency:
+                    <Select value={currency} onChange={e => setCurrency(e.target.value)}>
                         {options}
-                    </select>
-                </label>
+                    </Select>
+                </InputLabel>
                 <p>Price: ${price}</p>                
             </div>
             <div>

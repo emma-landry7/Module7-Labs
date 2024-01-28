@@ -1,15 +1,15 @@
 import BitcoinRates from "../components/BitcoinRates";
 import Emoji from "../components/Emoji";
-import NavBar from "../components/NavBar";
+import NewNavBar from "../components/NewNavBar";
 
 export default function HomePage() {
     return (
-        <div>
+        <>
             <h1>Home</h1>
-            <NavBar />
+            <NewNavBar />
             <p>The mood below will remain the same between pages!</p>
             {/* <BitcoinRates /> */}
             <Emoji />
-        </div>
+        </>
     )
 }
