@@ -5,7 +5,7 @@ import Emoji from "./Emoji";
 import NewNavBar from "./NewNavBar";
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
-import { MenuItem } from "@mui/material";
+import { MenuItem, Typography } from "@mui/material";
 
 const currencies = ['USD', 'AUD', 'NZD', 'GBP', 'EUR', 'SGD'];
 
@@ -39,14 +39,14 @@ function BitcoinRates() {
     return (
         <div>
             <div>
-                <h1>Bitcoin Exchange Rate</h1>
+                <Typography variant="h2">Bitcoin Exchange Rate</Typography>
                 <NewNavBar />
-                <InputLabel>Choose currency:
+                <InputLabel variant="standard">Choose currency:
                     <Select value={currency} onChange={e => setCurrency(e.target.value)}>
                         {options}
                     </Select>
                 </InputLabel>
-                <p>Price: ${price}</p>                
+                <Typography variant="body1">Price: ${price}</Typography>                
             </div>
             <div>
                 <Emoji />

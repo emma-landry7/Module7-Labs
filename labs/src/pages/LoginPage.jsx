@@ -25,7 +25,7 @@ export default function LoginPage() {
 
     return (
         <div>
-            <FormControl onSubmit={handleSubmit}>
+            <FormControl>
                 <div>
                     <TextField variant="outlined" label="Email" type="email" value={userEmail} name="userEmail"
                         onChange={(e) => setUserEmail(e.target.value)} />
@@ -34,7 +34,7 @@ export default function LoginPage() {
                     <TextField type="password" label="Password" value={userPassword} name="userPassword"
                         onChange={(e) => setUserPassword(e.target.value)} />
                 </div>
-                <Button variant="outlined">Log In</Button>
+                <Button variant="outlined" onClick={handleSubmit}>Log In</Button>
                 <p>{submitMessage}</p>
             </FormControl>
         </div>

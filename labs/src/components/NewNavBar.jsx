@@ -9,10 +9,16 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import { NavLink } from 'react-router-dom';
 
-const pages = ['Home', 'Bitcoin Rates', 'Log Out'];
+const pageObject = {
+    home: ['Home', '/home'],
+    bitcoin: ['Bitcoin Rates', '/bitcoin'],
+    logout: ['Log Out', '/']
+}
 
-function ResponsiveAppBar() {
+function NewNavBar() {
+  const pages = Object.values(pageObject)
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -57,8 +63,9 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page[0]} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">
+                    <NavLink to={page[1]}>{page[0]}</NavLink></Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -83,13 +90,13 @@ function ResponsiveAppBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'space-between', }}>
             {pages.map((page) => (
-              <Button
-                key={page}
+              <NavLink to={page[1]}><Button
+                key={page[0]}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
-              </Button>
+                {page[0]}
+              </Button></NavLink>
             ))}
           </Box>
         </Toolbar>
@@ -97,5 +104,5 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
 
+export default NewNavBar;

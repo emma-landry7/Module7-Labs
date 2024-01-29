@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useMoodContext } from "../context/MoodContext";
+import { Button, Typography } from "@mui/material";
 
 function Emoji() {
     const [currentMood, setMood] = useState("😃")
@@ -19,14 +20,14 @@ function Emoji() {
 
     return (
         <div>
-            <h2>Mood </h2>
+            <Typography variant="h3">Mood </Typography>
             <div>
                 {/* {currentMood}
                 <button onClick={handleSubmit}>Change mood</button> */}
                 {mood}
             </div>
             <div>
-                <button onClick={() => handleMood()}>Change mood</button>
+                <Button variant="outlined" onClick={() => handleMood()}>Change mood</Button>
             </div>
         </div>
     )
