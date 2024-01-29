@@ -7,18 +7,29 @@ import Emoji from './components/Emoji'
 import { MoodProvider } from './context/MoodContext'
 import AppRoutes from './routes/AppRoutes'
 import { UserProvider } from './context/UserContext'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 function App() {
 
   return (
     <>
       <UserProvider>
-        <MoodProvider>
-          {/* <h1>Module 7 Labs</h1>
-          <BitcoinRates /> */}
-          {/* <Emoji /> */}
-          <AppRoutes />
-        </MoodProvider>
+        <ThemeProvider theme={darkTheme}>
+          <MoodProvider>
+            <CssBaseline />
+            {/* <h1>Module 7 Labs</h1>
+            <BitcoinRates /> */}
+            {/* <Emoji /> */}
+            <AppRoutes />
+          </MoodProvider>
+        </ThemeProvider>
       </UserProvider>
     </>
   )

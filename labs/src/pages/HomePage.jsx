@@ -1,15 +1,16 @@
+import { Typography } from "@mui/material";
 import BitcoinRates from "../components/BitcoinRates";
 import Emoji from "../components/Emoji";
-import NavBar from "../components/NavBar";
+import NewNavBar from "../components/NewNavBar";
 
 export default function HomePage() {
     return (
-        <div>
-            <h1>Home</h1>
-            <NavBar />
-            <p>The mood below will remain the same between pages!</p>
+        <>
+            <Typography variant="h1">Home</Typography>
+            <NewNavBar />
+            <Typography variant="body1" sx={{ margin: '1rem'}}>The mood below will remain the same between pages!</Typography>
             {/* <BitcoinRates /> */}
             <Emoji />
-        </div>
+        </>
     )
 }

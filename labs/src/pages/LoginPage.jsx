@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useUserContext } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import HomePage from "./HomePage";
+import TextField from '@mui/material/TextField';
+import { Button } from "@mui/material";
+import FormControl from '@mui/material/FormControl';
 
 export default function LoginPage() {
     const [userEmail, setUserEmail] = useState('')
@@ -22,22 +25,18 @@ export default function LoginPage() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <FormControl>
                 <div>
-                    <label>Email:
-                        <input type="email" value={userEmail} name="userEmail"
-                            onChange={(e) => setUserEmail(e.target.value)} />
-                    </label>
+                    <TextField variant="outlined" label="Email" type="email" value={userEmail} name="userEmail"
+                        onChange={(e) => setUserEmail(e.target.value)} />
                 </div>
                 <div>
-                    <label>Password:
-                        <input type="password" value={userPassword} name="userPassword"
-                            onChange={(e) => setUserPassword(e.target.value)} />
-                    </label>
+                    <TextField type="password" label="Password" value={userPassword} name="userPassword"
+                        onChange={(e) => setUserPassword(e.target.value)} />
                 </div>
-                <button>Log In</button>
+                <Button variant="outlined" onClick={handleSubmit}>Log In</Button>
                 <p>{submitMessage}</p>
-            </form>
+            </FormControl>
         </div>
     )
 }
